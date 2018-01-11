@@ -21,7 +21,7 @@ namespace SampleGame
         public bool IsGameOver { get { return _isGameOver; } }
 
         [SerializeField]
-        private string nextLevelName;
+        private string nextLevelName = "Level1";
 
         [SerializeField]
         private int nextLevelIndex;
@@ -64,21 +64,40 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-
-                LoadLevel(nextLevelName);
-
+                SceneManager.LoadScene(nextLevelName);
             }
         }
 
         private void LoadLevel(string levelName)
         {
-            SceneManager.LoadScene(levelName);
+            Scene nextScene = SceneManager.GetSceneByName(levelName);
+
+            if (nextScene.IsValid())
+            {
+                SceneManager.LoadScene(levelName);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!");
+            }
         }
 
         private void LoadLevel(int levelIndex)
         {
-            SceneManager.LoadScene(levelIndex);
+            if (levelIndex >= 0 && levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(levelIndex);
+            }
+            else
+            {
+                Debug.LogWarning("GAMEMANAGER LoadLevel Error: invalid scene specified!"); 
+            }
         }
+
+
+        private void ReloadLevel()         {
+            //Scene currentScene = SceneManager.GetActiveScene();
+            LoadLevel(SceneManager.GetActiveScene().name);         }          private void LoadNextLevel()         {             Scene currentScene = SceneManager.GetActiveScene();             int currentSceneIndex = currentScene.buildIndex;             int totalSceneCount = SceneManager.sceneCountInBuildSettings;             int nextSceneIndex = currentSceneIndex + 1;              nextSceneIndex = nextSceneIndex % totalSceneCount;             LoadLevel(nextSceneIndex);         } 
 
         // check for the end game condition on each frame
         private void Update()
