@@ -64,7 +64,7 @@ namespace SampleGame
             {
                 _isGameOver = true;
                 _goalEffect.PlayEffect();
-                SceneManager.LoadScene(nextLevelName);
+                LoadNextLevel();
             }
         }
 
@@ -94,10 +94,23 @@ namespace SampleGame
             }
         }
 
+        private void ReloadLevel()
+        {
+            LoadLevel(SceneManager.GetActiveScene().name);
+        }
 
-        private void ReloadLevel()         {
+        private void LoadNextLevel()
+        {
             //Scene currentScene = SceneManager.GetActiveScene();
-            LoadLevel(SceneManager.GetActiveScene().name);         }          private void LoadNextLevel()         {             Scene currentScene = SceneManager.GetActiveScene();             int currentSceneIndex = currentScene.buildIndex;             int totalSceneCount = SceneManager.sceneCountInBuildSettings;             int nextSceneIndex = currentSceneIndex + 1;              nextSceneIndex = nextSceneIndex % totalSceneCount;             LoadLevel(nextSceneIndex);         } 
+            //int currentSceneIndex = currentScene.buildIndex;
+            //int nextSceneIndex = currentSceneIndex + 1;
+            //int totalSceneCount = SceneManager.sceneCountInBuildSettings;
+            //nextSceneIndex = nextLevelIndex % totalSceneCount;
+
+            int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) 
+                % SceneManager.sceneCountInBuildSettings;
+            LoadLevel(nextSceneIndex);
+        }
 
         // check for the end game condition on each frame
         private void Update()
