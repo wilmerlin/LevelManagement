@@ -7,13 +7,11 @@ namespace LevelManagement
     public class MenuManager : MonoBehaviour
     {
         public Menu mainMenuPrefab;
-
         public Menu settingsMenuPrefab;
-
         public Menu creditsScreenPrefab;
 
         [SerializeField]
-        Transform menuParent;
+        private Transform _menuParent;
 
         private void Awake()
         {
@@ -22,10 +20,10 @@ namespace LevelManagement
 
         private void InitializeMenus()
         {
-            if (menuParent == null)
+            if (_menuParent == null)
             {
                 GameObject menuParentObject = new GameObject("Menus");
-                menuParent = menuParentObject.transform;
+                _menuParent = menuParentObject.transform;
             }
 
             Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab };
@@ -34,15 +32,14 @@ namespace LevelManagement
             {
                 if (prefab != null)
                 {
-                    Menu menuInstance = Instantiate(prefab, menuParent);
-
+                    Menu menuInstance = Instantiate(prefab, _menuParent);
                     if (prefab != mainMenuPrefab)
                     {
                         menuInstance.gameObject.SetActive(false);
                     }
                     else
                     {
-                        // open the main menu
+                        // open main menu
                     }
                 }
             }
