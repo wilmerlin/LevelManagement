@@ -16,12 +16,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: floorMat
-    second: {fileID: 2100000, guid: c33972af90fcd4195a28da4259fe04ab, type: 2}
+    second: {fileID: 2100000, guid: 87d7260b9c9de304ba395949900b1a11, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: wallMat
-    second: {fileID: 2100000, guid: f8e83ea8ad2a5458cb787d560ad13913, type: 2}
+    second: {fileID: 2100000, guid: d52087653c77e3e439f2001f4a8fd3c7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -64,6 +64,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

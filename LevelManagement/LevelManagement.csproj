@@ -214,9 +214,6 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -335,7 +332,6 @@
   <ItemGroup>
     <Compile Include="Assets\LevelManagement\Scripts\Menu.cs" />
     <Compile Include="Assets\LevelManagement\Scripts\MenuManager.cs" />
-    <Compile Include="Assets\SampleGame\Scripts\Example.cs" />
     <Compile Include="Assets\SampleGame\Scripts\GameManager.cs" />
     <Compile Include="Assets\SampleGame\Scripts\GoalEffect.cs" />
     <Compile Include="Assets\SampleGame\Scripts\Objective.cs" />
